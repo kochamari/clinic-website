@@ -553,6 +553,126 @@
             padding-top: 1rem;
             border-top: 1px dashed rgba(76, 175, 80, 0.3);
         }
+
+        .main-nav {
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            color: var(--primary-color);
+            background: #fff;
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            transition: background 0.2s, color 0.2s;
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+        .nav-link:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .header-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+        .menu-trigger {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            transition: box-shadow 0.2s;
+            position: relative;
+        }
+        .menu-trigger span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            margin: 3px 0;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .menu-trigger:focus,
+        .menu-trigger:hover {
+            box-shadow: 0 4px 16px rgba(44,62,80,0.15);
+        }
+        .header-menu:hover .dropdown-menu,
+        .header-menu:focus-within .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 54px;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+            padding: 1.2rem 0.5rem;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px) scale(0.98);
+            transition: all 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .dropdown-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            font-size: 1.05rem;
+            letter-spacing: 0.03em;
+            position: relative;
+            overflow: hidden;
+        }
+        .dropdown-link::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            opacity: 0.08;
+            z-index: 0;
+            transition: opacity 0.3s;
+        }
+        .dropdown-link:hover, .dropdown-link:focus {
+            background: var(--accent-color);
+            color: #fff;
+            transform: translateX(6px) scale(1.04);
+        }
+        .dropdown-link:hover::before, .dropdown-link:focus::before {
+            opacity: 0.18;
+        }
+        @media (max-width: 768px) {
+            .header-menu {
+                top: 1rem;
+                right: 1rem;
+            }
+            .dropdown-menu {
+                min-width: 140px;
+                padding: 0.7rem 0.2rem;
+            }
+            .dropdown-link {
+                font-size: 0.98rem;
+                padding: 0.6rem 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -560,6 +680,17 @@
         <div class="logo-container">
             <img src="logo.png" alt="原口消化器内科 20周年記念ロゴ">
             <div class="anniversary-badge">開院20周年</div>
+        </div>
+        <div class="header-menu">
+            <div class="menu-trigger" tabindex="0">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="dropdown-menu">
+                <a href="#guide" class="dropdown-link">診療案内</a>
+                <a href="#facility" class="dropdown-link">院内紹介</a>
+                <a href="director.html" class="dropdown-link">院長紹介</a>
+                <a href="#faq" class="dropdown-link">よくある質問</a>
+            </nav>
         </div>
         <div class="header-content">
             <h1 class="header-title">原口消化器内科</h1>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ちゃちゃまる院長のご紹介 | 原口消化器内科</title>
+    <meta name="description" content="わんこのちゃちゃまる院長の可愛いプロフィールページ。地域医療に貢献するワン！">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1B5E20;
+            --secondary-color: #2E7D32;
+            --accent-color: #4CAF50;
+            --text-color: #2C3E50;
+            --bg-color: #fff;
+            --card-bg: #f8f9fa;
+            --paw-color: #ffb347;
+            --bone-color: #fff8dc;
+            --gradient-start: #1B5E20;
+            --gradient-end: #2E7D32;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, #f8fffa 0%, #e0f7fa 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            padding: 2rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .logo-container {
+            max-width: 220px;
+            width: 60%;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 50%;
+            padding: 1.2rem;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+            60% { opacity: 1; transform: scale(1.1) rotate(3deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
+        }
+        .anniversary-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translate(10%, -30%);
+            white-space: nowrap;
+            animation: badgePop 1.5s 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
+        }
+        @keyframes badgePop {
+            0% { opacity: 0; transform: scale(0.7) translate(10%, -30%); }
+            80% { opacity: 1; transform: scale(1.1) translate(10%, -30%); }
+            100% { opacity: 1; transform: scale(1) translate(10%, -30%); }
+        }
+        .main-nav {
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            color: var(--primary-color);
+            background: #fff;
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            transition: background 0.2s, color 0.2s;
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+        .nav-link:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title h2 {
+            display: inline-block;
+            position: relative;
+            font-size: 2.1rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.8rem;
+            letter-spacing: 0.08em;
+            background: linear-gradient(90deg, #fffbe7 60%, #e0f7fa 100%);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            animation: fadeInUp 1.2s 0.3s both;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .paw-deco {
+            position: absolute;
+            left: 0; top: 0;
+            font-size: 2.2rem;
+            color: var(--paw-color);
+            animation: pawBounce 2.2s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes pawBounce {
+            0% { transform: scale(1) rotate(-10deg); }
+            100% { transform: scale(1.15) rotate(10deg); }
+        }
+        .doctor-profile {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.2s 0.5s both;
+        }
+        .doctor-image-container {
+            flex: 0 0 320px;
+            position: relative;
+            z-index: 1;
+            animation: floatDog 3s ease-in-out infinite;
+        }
+        @keyframes floatDog {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
+        .doctor-image {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.13);
+            border: 6px solid #fffbe7;
+            background: #fffbe7;
+            animation: dogPop 1.2s 0.7s both cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes dogPop {
+            0% { opacity: 0; transform: scale(0.7) rotate(-8deg); }
+            60% { opacity: 1; transform: scale(1.08) rotate(4deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
+        }
+        .bone-deco {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            font-size: 2.2rem;
+            color: var(--bone-color);
+            filter: drop-shadow(0 2px 4px rgba(44,62,80,0.13));
+            animation: boneWiggle 2.5s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes boneWiggle {
+            0% { transform: rotate(-10deg) scale(1); }
+            100% { transform: rotate(10deg) scale(1.1); }
+        }
+        .doctor-info {
+            flex: 1;
+            z-index: 2;
+        }
+        .doctor-name {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            letter-spacing: 0.08em;
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            animation: fadeInUp 1.2s 0.8s both;
+        }
+        .doctor-name .fa-dog {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            animation: dogWag 1.2s 1.2s both cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes dogWag {
+            0% { transform: rotate(-20deg); }
+            30% { transform: rotate(20deg); }
+            60% { transform: rotate(-10deg); }
+            100% { transform: rotate(0); }
+        }
+        .doctor-message {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding: 0.7rem 1.2rem;
+            background: linear-gradient(90deg, #fffbe7 60%, #e0f7fa 100%);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            animation: fadeInUp 1.2s 1s both;
+        }
+        .doctor-philosophy {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+            animation: fadeInUp 1.2s 1.2s both;
+        }
+        .doctor-philosophy p {
+            margin-bottom: 1rem;
+        }
+        .doctor-fun-fact {
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(76, 175, 80, 0.3);
+            animation: fadeInUp 1.2s 1.4s both;
+        }
+        .paw-print {
+            display: inline-block;
+            font-size: 1.5em;
+            color: var(--paw-color);
+            margin-right: 0.3em;
+            vertical-align: middle;
+            animation: pawBounce 2.2s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .speech-bubble {
+            position: relative;
+            background: #fffbe7;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 1.15rem;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            animation: fadeInUp 1.2s 1.6s both;
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            bottom: -18px;
+            width: 24px;
+            height: 24px;
+            background: #fffbe7;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        }
+        @media (max-width: 900px) {
+            .doctor-profile {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2rem;
+                text-align: center;
+            }
+            .doctor-image-container {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 320px;
+            }
+            .doctor-name {
+                font-size: 1.5rem;
+            }
+            .doctor-message {
+                font-size: 1.1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .doctor-profile {
+                padding: 1.2rem;
+            }
+            .doctor-image-container {
+                width: 100%;
+            }
+            .doctor-image {
+                border-radius: 16px;
+            }
+            .doctor-name {
+                font-size: 1.2rem;
+            }
+            .doctor-message {
+                font-size: 1rem;
+            }
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 1rem;
+        }
+        .photo-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .photo-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.9);
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+        .header-content {
+            padding: 2rem 0;
+            animation: fadeInDown 1.2s ease-out;
+        }
+        .header-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">トップページ</a>
+        </nav>
+        <div class="header-content">
+            <h1 class="header-title">ちゃちゃまる院長のご紹介</h1>
+            <p class="header-subtitle">わんこの院長がみなさまをお迎えします！</p>
+        </div>
+    </header>
+    <div class="container">
+        <section class="section">
+            <div class="section-title">
+                <span class="paw-deco">🐾</span>
+                <h2>ちゃちゃまる院長プロフィール</h2>
+            </div>
+            <div class="doctor-profile">
+                <div class="doctor-image-container">
+                    <img src="doctor.jpg" alt="ちゃちゃまる院長" class="doctor-image">
+                    <span class="bone-deco">🦴</span>
+                </div>
+                <div class="doctor-info">
+                    <h3 class="doctor-name"><i class="fas fa-dog"></i> ちゃちゃまる院長</h3>
+                    <div class="doctor-message">地域医療に貢献するワン！</div>
+                    <div class="doctor-philosophy">
+                        <p><span class="paw-print">🐾</span>みなさまの健康を第一に考え、やさしい診療を心がけています。</p>
+                        <p><span class="paw-print">🐾</span>不安なことがあれば、なんでもお気軽にご相談ください。</p>
+                    </div>
+                    <div class="doctor-fun-fact">趣味：アヒルさんと遊ぶこと・お散歩・おやつタイム</div>
+                    <div class="speech-bubble">「これからも地域のみなさまのために、元気いっぱいがんばるワン！」</div>
+                </div>
+            </div>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="chacha_play.jpg" alt="おもちゃで遊ぶちゃちゃまる院長">
+                    <div class="photo-caption">お気に入りのアヒルさんと遊ぶ時間</div>
+                </div>
+                <div class="photo-item">
+                    <img src="chacha_rest.jpg" alt="休憩中のちゃちゃまる院長">
+                    <div class="photo-caption">診察の合間のひとやすみ</div>
+                </div>
+                <div class="photo-item">
+                    <img src="chacha_smile.jpg" alt="笑顔のちゃちゃまる院長">
+                    <div class="photo-caption">いつも笑顔で診察します！</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Intersection Observer for photo gallery animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200); // Stagger the animations
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.photo-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html> 

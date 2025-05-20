@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原口消化器内科 | 佐世保市の消化器内科専門クリニック</title>
+    <meta name="description" content="佐世保市の消化器内科専門クリニック。胃・腸・肝臓・胆のう・すい臓などの消化器疾患の診断と治療を行っています。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1B5E20;
+            --secondary-color: #2E7D32;
+            --accent-color: #4CAF50;
+            --text-color: #2C3E50;
+            --bg-color: #fff;
+            --card-bg: #f8f9fa;
+            --gradient-start: #1B5E20;
+            --gradient-end: #2E7D32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            letter-spacing: 0.05em;
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            padding: 2rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .logo-container {
+            max-width: 280px;
+            width: 80%;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 50%;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            position: relative;
+            z-index: 1;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .logo-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-container img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            border-radius: 50%;
+            display: block;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease 0.3s;
+        }
+
+        .logo-container.visible img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .anniversary-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translate(10%, -30%) scale(0);
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.8s ease 0.6s;
+        }
+
+        .logo-container.visible .anniversary-badge {
+            opacity: 1;
+            transform: translate(10%, -30%) scale(1);
+            animation: pulse 2s infinite 1.5s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .header-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.9s;
+        }
+
+        .header-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .info-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .info-card:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.8rem;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .info-card:hover::before {
+            width: 8px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        h3 {
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        h3 i {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            width: 24px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4A5568;
+        }
+
+        .info-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4A5568;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                width: 60%;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .anniversary-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .header-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 1.5rem 0 3rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .section {
+                margin-bottom: 3rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                padding: 1.5rem;
+            }
+
+            .contact-info p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                width: 70%;
+                padding: 1.2rem;
+            }
+
+            .header-title {
+                font-size: 1.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .anniversary-badge {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .info-card {
+                padding: 1.2rem;
+            }
+
+            .section p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* 追加のスタイル */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="原口消化器内科 20周年記念ロゴ">
+            <div class="anniversary-badge">開院20周年</div>
+        </div>
+        <div class="header-content">
+            <h1 class="header-title">原口消化器内科</h1>
+            <p class="header-subtitle">消化器疾患の専門医療を提供します</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <div class="section-title">
+                <h2>クリニックについて</h2>
+            </div>
+            <p>原口消化器内科は、消化器疾患の専門クリニックとして、地域の皆様の健康を第一に考え、質の高い医療サービスを提供することを使命としています。<span class="highlight">経験豊富な医師と看護師が、患者様一人一人に寄り添った診療を行っています。</span></p>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>診療科目</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-stethoscope"></i>消化器内科</h3>
+                    <p>胃・腸・肝臓・胆のう・すい臓などの消化器疾患の診断と治療を行っています。最新の医療技術と設備を活用し、患者様の健康をサポートします。</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-microscope"></i>内視鏡検査</h3>
+                    <p>最新の内視鏡機器を使用し、胃カメラ・大腸カメラによる精密検査を実施。早期発見・早期治療を心がけています。</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-heartbeat"></i>生活習慣病</h3>
+                    <p>消化器系の生活習慣病の管理と治療を行い、患者様の生活の質の向上をサポートします。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>診療時間</h2>
+            </div>
+            <div class="info-card">
+                <p><i class="far fa-clock"></i>平日: 9:00 - 18:00</p>
+                <p><i class="far fa-clock"></i>土曜: 9:00 - 13:00</p>
+                <p><i class="far fa-clock"></i>日曜・祝日: 休診</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>アクセス</h2>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i>〒852-0052</p>
+                <p><i class="fas fa-building"></i>長崎県佐世保市松浦町5番28号</p>
+                <p><i class="fas fa-building"></i>アーバンパレス米春2F</p>
+                <p><i class="fas fa-phone"></i>電話: 0956-37-3777</p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208.7193527229721!2d129.71710487088092!3d33.17449800080976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356a9439c58c94bb%3A0x1881bb253d6c8e!2z5Y6f5Y-j5YaF56eR5raI5YyW5Zmo56eR!5e0!3m2!1sja!2sjp!4v1747729857664!5m2!1sja!2sjp" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0; border-radius: 20px; margin-top: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.1);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // セクションのアニメーション
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // カードのアニメーション
+            document.querySelectorAll('.info-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // ロゴと関連要素のアニメーション
+            setTimeout(() => {
+                document.querySelector('.logo-container').classList.add('visible');
+                document.querySelector('.header-content').classList.add('visible');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

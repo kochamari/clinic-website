@@ -400,6 +400,159 @@
             color: var(--primary-color);
             font-weight: 500;
         }
+
+        .doctor-profile {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .doctor-profile.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .doctor-image-container {
+            flex: 0 0 300px;
+            position: relative;
+        }
+
+        .doctor-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-image-container:hover .doctor-image {
+            transform: scale(1.02);
+        }
+
+        .doctor-image-decoration {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .duck-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: rotate(-10deg);
+        }
+
+        .heart-icon {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: #ff69b4;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .doctor-info {
+            flex: 1;
+        }
+
+        .doctor-name {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .doctor-message {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+        }
+
+        .doctor-philosophy {
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .doctor-philosophy p {
+            margin-bottom: 1rem;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .doctor-profile {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .doctor-image-container {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .doctor-name {
+                font-size: 1.6rem;
+            }
+
+            .doctor-message {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .doctor-profile {
+                padding: 1.5rem;
+            }
+
+            .doctor-image-container {
+                width: 100%;
+            }
+
+            .doctor-image-decoration {
+                font-size: 1.5rem;
+            }
+
+            .doctor-name {
+                font-size: 1.4rem;
+            }
+
+            .doctor-message {
+                font-size: 1.1rem;
+            }
+        }
+
+        .doctor-fun-fact {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(76, 175, 80, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -475,6 +628,30 @@
                 </iframe>
             </div>
         </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>院長紹介</h2>
+            </div>
+            <div class="doctor-profile">
+                <div class="doctor-image-container">
+                    <img src="doctor.jpg" alt="院長" class="doctor-image">
+                    <div class="doctor-image-decoration">
+                        <div class="duck-icon">🦆</div>
+                        <div class="heart-icon">❤️</div>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h3 class="doctor-name">ちゃちゃまる院長</h3>
+                    <p class="doctor-message">地域医療に貢献するワン</p>
+                    <div class="doctor-philosophy">
+                        <p>みなさまの健康を第一に考え、やさしい診療を心がけています。</p>
+                        <p>不安なことがあれば、なんでもお気軽にご相談ください。</p>
+                        <p class="doctor-fun-fact">趣味：アヒルさんと遊ぶこと</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -505,6 +682,11 @@
                 document.querySelector('.logo-container').classList.add('visible');
                 document.querySelector('.header-content').classList.add('visible');
             }, 300);
+
+            // 院長紹介セクションのアニメーション
+            document.querySelectorAll('.doctor-profile').forEach(profile => {
+                observer.observe(profile);
+            });
         });
     </script>
 </body>
